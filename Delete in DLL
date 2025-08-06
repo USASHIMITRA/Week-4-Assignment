@@ -1,0 +1,32 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+class Solution:
+    def delete_node(self, head, x):
+        if head is None:
+            return None
+
+        if x == 1:
+            new_head = head.next
+            if new_head:
+                new_head.prev = None
+            return new_head
+
+        current = head
+        count = 1
+
+        while current and count < x:
+            current = current.next
+            count += 1
+
+        if current is None:
+            return he
+        if current.prev:
+            current.prev.next = current.next
+        if current.next:
+            current.next.prev = current.prev
+
+        return head
